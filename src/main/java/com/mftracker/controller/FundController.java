@@ -92,7 +92,7 @@ public class FundController {
 
     @RequestMapping("/find-mutual-fund-nav")
     @ResponseBody
-    public Boolean findMutualFundNav(@RequestParam(name = "mutualFundSchemeId") String schemeId) {
+    public List<MutualFundNav> findMutualFundNav(@RequestParam(name = "mutualFundSchemeId") String schemeId) {
 
         String uri = "https://api.mfapi.in/mf/" + schemeId;
         RestTemplate restTemplate = new RestTemplate();
@@ -107,7 +107,7 @@ public class FundController {
 
         mutualFund.setMutualFundNavList(navList);
         mutualFundService.saveMutualFunds(mutualFund);
-        return true;
+        return navList;
     }
 
     @RequestMapping("/fetch-mutual-funds")
