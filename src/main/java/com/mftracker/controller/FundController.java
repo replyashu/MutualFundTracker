@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -101,7 +102,7 @@ public class FundController {
                         uri,
                         MetaNav.class);
         List<MutualFundNav> navList = response.getBody().getData();
-
+        Collections.reverse(navList);
         // Find mutual Fund by scheme name
         MutualFund mutualFund = findMutualFund(schemeId);
 
