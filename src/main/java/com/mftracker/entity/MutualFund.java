@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.util.List;
 
-@Table(name = "mutual_funds")
+@Table(name = "mutual_funds", indexes = @Index(columnList = "schemeCode"))
 @Entity
 @Data
 public class MutualFund {

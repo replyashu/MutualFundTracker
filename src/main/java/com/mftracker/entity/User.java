@@ -1,16 +1,13 @@
 package com.mftracker.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Set;
 
-@Table(name = "user_details")
+@Table(name = "user_details", indexes = @Index(columnList = "userId, email"))
 @Entity
 @Data
 public class User {
